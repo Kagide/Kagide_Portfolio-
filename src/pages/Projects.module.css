@@ -1,0 +1,45 @@
+
+
+.main {
+  padding-top: calc(var(--nav-h) + clamp(3rem, 6vw, 5rem));
+  padding-bottom: clamp(4rem, 9vw, 7rem);
+  background: var(--surface-2);
+  min-height: 100vh;
+}
+
+.header {
+  max-width: 640px;
+  margin-bottom: var(--s16);
+}
+
+.sub {
+  font-size: 1rem;
+  color: var(--ink-soft);
+  line-height: 1.75;
+  margin-top: var(--s4);
+  max-width: 56ch;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: var(--s6);
+  margin-bottom: var(--s16);
+}
+
+.githubCta {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s4);
+  padding: var(--s12);
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.githubCta p {
+  font-size: 1rem;
+  color: var(--ink-soft);
+}

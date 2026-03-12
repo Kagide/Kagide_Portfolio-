@@ -1,0 +1,139 @@
+
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+  padding: var(--s8);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow var(--t-med) var(--ease),
+              transform var(--t-med) var(--ease);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-6px);
+}
+
+
+.stripe {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+
+.iconWrap {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon { font-size: 1.6rem; line-height: 1; }
+
+
+.body { flex: 1; }
+
+.subtitle {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--s1);
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  color: var(--primary);      
+  line-height: 1.2;
+  margin-bottom: var(--s3);
+}
+
+.description {
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+}
+
+.tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--border);
+  color: var(--ink-soft);
+  background: var(--surface-2);
+  transition: border-color var(--t-fast), color var(--t-fast);
+}
+
+.card:hover .tag {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+
+.actions {
+  display: flex;
+  gap: var(--s3);
+  padding-top: var(--s4);
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  padding: 0.5rem 1rem;
+  transition: all var(--t-fast) var(--ease);
+}
+
+.btnPrimary {
+  background: var(--primary); 
+  color: var(--white);
+}
+.btnPrimary:hover {
+  background: var(--accent);    
+  transform: translateY(-1px);
+}
+
+.btnSecondary {
+  border: 1.5px solid var(--border-hi);
+  color: var(--primary);    
+}
+.btnSecondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.btnDisabled {
+  border: 1.5px solid var(--border);
+  color: var(--ink-muted);
+  cursor: default;
+  font-size: 0.8rem;
+}

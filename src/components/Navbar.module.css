@@ -1,0 +1,110 @@
+
+
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: var(--nav-h);
+  transition: background var(--t-med) var(--ease),
+              box-shadow var(--t-med) var(--ease);
+}
+
+.header.scrolled {
+  background: rgba(250, 250, 248, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 var(--border);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.dot { color: var(--accent); }  /* teal dot */
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--s8);
+}
+
+.link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  position: relative;
+  transition: color var(--t-fast) var(--ease);
+  padding-bottom: 2px;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 1.5px;
+  background: var(--accent);   
+  transition: width var(--t-med) var(--ease);
+}
+
+.link:hover { color: var(--primary); } 
+.link:hover::after { width: 100%; }
+.link.active { color: var(--primary); }
+.link.active::after { width: 100%; }
+
+.cta { font-size: 0.825rem; padding: 0.55rem 1.25rem; }
+
+
+.hamburger {
+  display: none;
+  color: var(--ink);
+  padding: var(--s2);
+  border-radius: var(--radius-sm);
+  transition: background var(--t-fast);
+}
+.hamburger:hover { background: var(--surface-2); }
+
+
+.drawer {
+  position: fixed;
+  top: var(--nav-h);
+  left: 0; right: 0; bottom: 0;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s8);
+  animation: slideDown 0.28s var(--ease);
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.drawerLink {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--ink-soft);
+  transition: color var(--t-fast);
+}
+
+.drawerLink:hover,
+.drawerLink.drawerActive { color: var(--primary); }  /* dark blue */
+
+.drawerCta { margin-top: var(--s4); padding: 0.75rem 2rem; }
+
+@media (max-width: 700px) {
+  .nav { display: none; }
+  .hamburger { display: flex; }
+}

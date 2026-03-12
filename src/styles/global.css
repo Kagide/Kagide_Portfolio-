@@ -1,0 +1,170 @@
+/* ============================================================
+   KAGIDE PORTFOLIO — GLOBAL STYLES
+   Palette: Dark Blue (#0D3B66) · Teal (#2EC4B6) · Light Grey (#F5F5F5)
+   Typography: DM Serif Display (headings) + DM Sans (body)
+   ============================================================ */
+
+:root {
+  /* ── Brand palette ── */
+  --primary:      #0D3B66;   /* Dark Blue  — headings, primary buttons, navbar */
+  --primary-hi:   #0A2E50;   /* Darker Blue — hover on primary buttons          */
+  --primary-lo:   rgba(13,59,102,0.08); /* Tinted wash for badge backgrounds   */
+
+  --accent:       #2EC4B6;   /* Teal / Aqua — CTA, highlights, hover accents   */
+  --accent-hi:    #25A99D;   /* Darker Teal — hover on accent buttons           */
+  --accent-lo:    rgba(46,196,182,0.10); /* Soft teal wash                     */
+
+  /* ── Neutral surface / text ── */
+  --ink:          #333333;   /* Body text — dark grey, readable on light bg    */
+  --ink-soft:     #555555;   /* Secondary text — slightly lighter               */
+  --ink-muted:    #888888;   /* Placeholder, timestamps, subtle labels          */
+  --surface:      #F5F5F5;   /* Page background — light grey                   */
+  --surface-2:    #EBEBEB;   /* Slightly deeper grey — alternate section bg     */
+  --surface-3:    #DEDEDE;   /* Borders, dividers on white cards                */
+  --border:       #DCDCDC;   /* Default border colour                           */
+  --border-hi:    #B8B8B8;   /* Stronger border (inputs focus ring base, etc.)  */
+  --white:        #FFFFFF;   /* Card backgrounds, form fields                   */
+
+  /* ── Semantic aliases (keeps component CSS files unchanged) ── */
+  /* "ink" in older components → maps to primary for headings/branding */
+
+  /* Typography */
+  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-sans:  'DM Sans', system-ui, sans-serif;
+
+  /* Spacing scale */
+  --s1: 0.25rem;
+  --s2: 0.5rem;
+  --s3: 0.75rem;
+  --s4: 1rem;
+  --s5: 1.25rem;
+  --s6: 1.5rem;
+  --s8: 2rem;
+  --s10: 2.5rem;
+  --s12: 3rem;
+  --s16: 4rem;
+  --s20: 5rem;
+  --s24: 6rem;
+
+  /* Layout */
+  --max-w: 1140px;
+  --nav-h: 68px;
+  --radius: 12px;
+  --radius-sm: 6px;
+  --radius-full: 999px;
+
+  /* Shadows — warmer, slightly blue-tinted */
+  --shadow-sm:    0 1px 4px rgba(13,59,102,0.07), 0 0 0 1px var(--border);
+  --shadow-md:    0 4px 20px rgba(13,59,102,0.09), 0 0 0 1px var(--border);
+  --shadow-lg:    0 12px 48px rgba(13,59,102,0.12), 0 0 0 1px var(--border);
+  --shadow-hover: 0 20px 60px rgba(13,59,102,0.16), 0 0 0 1px var(--border-hi);
+
+  /* Transitions */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --t-fast: 180ms;
+  --t-med: 320ms;
+  --t-slow: 500ms;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-sans);
+  background: var(--surface);
+  color: var(--ink);          /* #333333 dark grey */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img, svg, video { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font: inherit; }
+ul, ol { list-style: none; }
+input, textarea { font: inherit; color: inherit; }
+
+/* ── Layout utilities ── */
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 3rem);
+}
+
+.section {
+  padding-block: clamp(4rem, 9vw, 6.5rem);
+}
+
+/* ── Scroll-reveal animation base ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--t-slow) var(--ease),
+              transform var(--t-slow) var(--ease);
+}
+.reveal.in { opacity: 1; transform: translateY(0); }
+.reveal[data-delay="1"] { transition-delay: 80ms; }
+.reveal[data-delay="2"] { transition-delay: 160ms; }
+.reveal[data-delay="3"] { transition-delay: 240ms; }
+.reveal[data-delay="4"] { transition-delay: 320ms; }
+
+/* ── Typography helpers ── */
+.label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);       /* Teal label text */
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  line-height: 1.08;
+  color: var(--primary);      /* Dark Blue headings */
+  margin-top: var(--s3);
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  padding: 0.65rem 1.5rem;
+  transition: all var(--t-fast) var(--ease);
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+}
+.btn-primary:hover {
+  background: var(--primary-hi);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(13,59,102,0.28);
+}
+.btn-outline {
+  border: 1.5px solid var(--border-hi);
+  color: var(--primary);
+  background: transparent;
+}
+.btn-outline:hover {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--white);
+  transform: translateY(-1px);
+}
+.btn-accent {
+  background: var(--accent);
+  color: var(--white);
+}
+.btn-accent:hover {
+  background: var(--accent-hi);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(46,196,182,0.35);
+}
