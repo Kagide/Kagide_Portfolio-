@@ -57,35 +57,38 @@ export default function Contact() {
   return (
     <main className={styles.main}>
       <div className="container">
-
-      
         <div className={styles.pageHeader}>
           <p className="label reveal">Contact</p>
           <h1 className="section-title reveal" data-delay="1">
             Let's Work Together
           </h1>
           <p className={`${styles.headerSub} reveal`} data-delay="2">
-            Have a project in mind, a role to discuss, or just want to say hello?
-            I'd love to hear from you.
+            Have a project in mind, a role to discuss, or just want to say
+            hello? I'd love to hear from you.
           </p>
         </div>
 
         <div className={styles.grid}>
-
-         
           <div className={`${styles.info} reveal`}>
             <div className={styles.infoItems}>
               <div className={styles.infoItem}>
-                <div className={styles.infoIcon}><FiMail size={18} /></div>
+                <div className={styles.infoIcon}>
+                  <FiMail size={18} />
+                </div>
                 <div>
                   <p className={styles.infoLabel}>Email</p>
-                  <a href="mailto:kagide6@gmail.com" className={styles.infoValue}>
+                  <a
+                    href="mailto:kagide6@gmail.com"
+                    className={styles.infoValue}
+                  >
                     kagide6@gmail.com
                   </a>
                 </div>
               </div>
               <div className={styles.infoItem}>
-                <div className={styles.infoIcon}><FiMapPin size={18} /></div>
+                <div className={styles.infoIcon}>
+                  <FiMapPin size={18} />
+                </div>
                 <div>
                   <p className={styles.infoLabel}>Location</p>
                   <p className={styles.infoValue}>Available remotely</p>
@@ -105,7 +108,7 @@ export default function Contact() {
                   <FiGithub size={18} /> GitHub
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/kagide"
+                  href="https://www.linkedin.com/in/kagiraneza-egide/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.socialBtn}
@@ -117,25 +120,35 @@ export default function Contact() {
 
             <div className={styles.availNote}>
               <span className={styles.availDot} />
-              <p>Currently open to full-time and freelance opportunities.</p>
+              <p>Currently open to partial-time and freelance opportunities.</p>
             </div>
           </div>
 
-         
           <div className={`${styles.formWrap} reveal`} data-delay="2">
-            {status === 'success' ? (
+            {status === "success" ? (
               <div className={styles.successState}>
-                <div className={styles.successIcon}><FiCheck size={32} /></div>
+                <div className={styles.successIcon}>
+                  <FiCheck size={32} />
+                </div>
                 <h3>Message Sent!</h3>
-                <p>Thanks for reaching out. I'll get back to you within 24 hours.</p>
-                <button className="btn btn-outline" onClick={() => setStatus('idle')}>
+                <p>
+                  Thanks for reaching out. I'll get back to you within 24 hours.
+                </p>
+                <button
+                  className="btn btn-outline"
+                  onClick={() => setStatus("idle")}
+                >
                   Send Another
                 </button>
               </div>
             ) : (
-              <form ref={formRef} onSubmit={handleSubmit} className={styles.form} noValidate>
-
-                {status === 'error' && (
+              <form
+                ref={formRef}
+                onSubmit={handleSubmit}
+                className={styles.form}
+                noValidate
+              >
+                {status === "error" && (
                   <div className={styles.errorBanner}>
                     <FiAlertCircle size={16} />
                     {errorMsg}
@@ -147,7 +160,10 @@ export default function Contact() {
                     Full Name <span className={styles.req}>*</span>
                   </label>
                   <input
-                    id="name" name="name" type="text" required
+                    id="name"
+                    name="name"
+                    type="text"
+                    required
                     placeholder="Your name"
                     value={form.name}
                     onChange={handleChange}
@@ -160,7 +176,10 @@ export default function Contact() {
                     Email Address <span className={styles.req}>*</span>
                   </label>
                   <input
-                    id="email" name="email" type="email" required
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
                     placeholder="you@example.com"
                     value={form.email}
                     onChange={handleChange}
@@ -173,7 +192,10 @@ export default function Contact() {
                     Message <span className={styles.req}>*</span>
                   </label>
                   <textarea
-                    id="message" name="message" required rows={5}
+                    id="message"
+                    name="message"
+                    required
+                    rows={5}
                     placeholder="Tell me about your project or opportunity..."
                     value={form.message}
                     onChange={handleChange}
@@ -184,20 +206,23 @@ export default function Contact() {
                 <button
                   type="submit"
                   className={`btn btn-accent ${styles.submitBtn}`}
-                  disabled={status === 'sending'}
+                  disabled={status === "sending"}
                 >
-                  {status === 'sending' ? (
-                    <><span className={styles.spinner} /> Sending…</>
+                  {status === "sending" ? (
+                    <>
+                      <span className={styles.spinner} /> Sending…
+                    </>
                   ) : (
-                    <><FiSend size={16} /> Send Message</>
+                    <>
+                      <FiSend size={16} /> Send Message
+                    </>
                   )}
                 </button>
               </form>
             )}
           </div>
-
         </div>
       </div>
     </main>
-  )
+  );
 }
